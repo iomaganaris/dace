@@ -187,7 +187,7 @@ class PatternMatchAndApplyRepeated(PatternMatchAndApply):
                                                     for k, v in applied_transformations.items()])),
                   end='')
         # TODO(tehrengruber): make this configurable
-        print_sdfg_hash(sdfg, frame_index=5, info=type(match).__name__)
+        # print_sdfg_hash(sdfg, frame_index=5, info=type(match).__name__)
         if self.validate_all:
             try:
                 sdfg.validate()

@@ -92,6 +92,8 @@ class Data:
         if any(not isinstance(s, (int, symbolic.SymExpr, symbolic.symbol, symbolic.sympy.Basic)) for s in self.shape):
             raise TypeError('Shape must be a list or tuple of integer values '
                             'or symbols')
+        if any(shp == sp.nan for shp in self.shape):
+            raise TypeError(f'Found NaN in Data shape, its shape was {self.shape}')
         if any((shp < 0) == True for shp in self.shape):
             raise TypeError(f'Found negative shape in Data, its shape was {self.shape}')
         return True
